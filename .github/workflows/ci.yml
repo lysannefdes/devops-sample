@@ -2,9 +2,6 @@ name: Continuous Integration
 
 on: 
   workflow_dispatch:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows: ["Test"]
     types:
@@ -29,7 +26,7 @@ jobs:
 
     - name: Verify
       run: |
-        echo "${{ github.event_name }}"
+        echo "${{ github.event_name }} ok"
 
     - name: Install dependencies
       run: |
