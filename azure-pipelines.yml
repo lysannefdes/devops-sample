@@ -1,0 +1,28 @@
+trigger:
+- main
+
+stages:
+- stage: Dev
+  jobs:
+  - job: DeployToDev
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - script: echo Deploying to Dev
+    - task: Approval
+      inputs:
+        notifyUsers: |
+          lysanne.l.fernandes@kipi.bi
+
+- stage: QA
+  jobs:
+  - job: DeployToQA
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - script: echo Deploying to QA
+    - task: Approval
+      inputs:
+        notifyUsers: |
+          lysanne.l.fernandes@kipi.bi
+
