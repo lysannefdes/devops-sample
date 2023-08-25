@@ -24,7 +24,7 @@ jobs:
 
     - name: Check Changes
       run: |
-          git diff --name-only ${{ github.event.before }} ${{ github.sha }}
+          ${{ github.event }}
 
     - name: Set up Python
       uses: actions/setup-python@v2
