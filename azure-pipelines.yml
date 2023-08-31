@@ -1,10 +1,17 @@
-trigger:
-- main
+
+on:
+  pull_request:
+    types: [opened]
+  workflow_dispatch:
+  issue_comment:                                     
+    types: [created, edited]
+
 
 stages:
 - stage: Dev
   jobs:
   - job: DeployToDev
+    if: contains(github.event.comment.body, '/test')
     pool:
       vmImage: 'windows-latest'
     steps:
