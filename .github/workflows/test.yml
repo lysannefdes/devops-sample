@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types: [opened]
+  workflow_dispatch:
+  issue_comment:                                     
+          types: [created, edited]
+      
 
 jobs:
   build-and-test:
@@ -11,5 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout repository 
       uses: actions/checkout@v2
+    
+    - name: Test step
+      if: contains(github.event.comment.body, '/test') 
+      run: |
+        echo say hello
