@@ -22,6 +22,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Check Changes
+      run: |
+          ${{ github.event }}
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
