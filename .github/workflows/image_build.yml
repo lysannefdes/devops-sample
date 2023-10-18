@@ -19,7 +19,7 @@ jobs:
         id: changed-files-yaml
         uses: tj-actions/changed-files@v38
         with:
-           files: |
+           files_yaml: |
              django:
                - "main.py"
                - "requirements.txt"
