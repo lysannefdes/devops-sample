@@ -29,4 +29,4 @@ jobs:
           REGISTRY: 848575455166.dkr.ecr.us-east-1.amazonaws.com
         if: (github.ref == 'refs/heads/main')
         run: |
-           echo $ {{ steps.changed-files.outputs.django_any_changed }}
+           echo ${{ steps.changed-files.outputs.django_any_changed }}
