@@ -1,0 +1,32 @@
+name: Image Build Pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v38
+        with:
+           files: |
+             django:
+                "main.py"
+                "requirements.txt"
+
+      - name: Build and push django stable docker image
+        env:
+          REGISTRY: 848575455166.dkr.ecr.us-east-1.amazonaws.com
+        if: (github.ref == 'refs/heads/main') && (steps.changed-files.outputs.django_any_changed == 'true')
+        run: |
+           echo $ {{ steps.changed-files.outputs.django_any_changed }}
