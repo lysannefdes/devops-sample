@@ -20,9 +20,8 @@ jobs:
         uses: tj-actions/changed-files@v38
         with:
            files: |
-             django:
-                "main.py"
-                "requirements.txt"
+               "main.py"
+               "requirements.txt"
 
       - name: Build and push django stable docker image
         env:
