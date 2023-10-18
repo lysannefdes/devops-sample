@@ -16,7 +16,7 @@ class TestCalculatorFunctions(unittest.TestCase):
 
     def test_divide(self):
         self.assertEqual(divide(10, 2), 5)
-        self.assertEqual(divide(100, 25), 4)
+        self.assertEqual(divide(100, 24), 4)
 
     def test_divide_by_zero(self):
         with self.assertRaises(ValueError):
