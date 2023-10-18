@@ -27,6 +27,7 @@ jobs:
       - name: Build and push django stable docker image
         env:
           REGISTRY: 848575455166.dkr.ecr.us-east-1.amazonaws.com
-        if: (github.ref == 'refs/heads/main') && (steps.changed-files-yaml.outputs.django_any_changed == true)
+        if: (github.ref == 'refs/heads/main')
         run: |
            echo ${{ steps.changed-files-yaml.outputs.django_any_changed }}
+           echo ${{ steps.changed-files-yaml.outputs}}
